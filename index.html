@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>大工大シラバス簡易アクセス</title>
+<style>
+  body {
+    background-color: #f0f0f0; /* 単調な色 */
+    color: #000; /* 黒 */
+    font-family: Arial, sans-serif;
+  }
+  #input-container {
+    margin-top: 20px;
+  }
+  input[type="text"] {
+    width: 350px;
+    height: 50px;
+    font-size: 16px;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  input[type="submit"],
+  .key-button {
+    width: 50px;
+    height: 50px;
+    font-size: 16px;
+    margin: 5px;
+  }
+  .delete-button {
+    width: 308px;
+    height: 50px;
+    font-size: 16px;
+    margin: 5px;
+  }
+</style>
+</head>
+<body>
+<h3>講義コード（時間割等に記載）を入力してください</h3>
+<div id="input-container">
+  <input type="text" id="lecture-code" placeholder="講義コードを入力">
+  <input type="submit" value="→" onclick="generateLink()">
+</div>
+<div id="key-buttons">
+  <button class="key-button" onclick="addText('1')">1</button>
+  <button class="key-button" onclick="addText('2')">2</button>
+  <button class="key-button" onclick="addText('3')">3</button>
+  <button class="key-button" onclick="addText('4')">4</button>
+  <button class="key-button" onclick="addText('5')">5</button><br>
+  <button class="key-button" onclick="addText('6')">6</button>
+  <button class="key-button" onclick="addText('7')">7</button>
+  <button class="key-button" onclick="addText('8')">8</button>
+  <button class="key-button" onclick="addText('9')">9</button>
+  <button class="key-button" onclick="addText('0')">0</button><br>
+  <button class="key-button" onclick="addText('A')">A</button>
+  <button class="key-button" onclick="addText('B')">B</button>
+  <button class="key-button" onclick="addText('C')">C</button>
+  <button class="key-button" onclick="addText('D')">D</button>
+  <button class="key-button" onclick="addText('E')">E</button><br>
+  <button class="key-button" onclick="addText('F')">F</button>
+  <button class="key-button" onclick="addText('G')">G</button>
+  <button class="key-button" onclick="addText('L')">L</button>
+  <button class="key-button" onclick="addText('M')">M</button>
+  <button class="key-button" onclick="addText('N')">N</button><br>
+  <button class="delete-button" onclick="clearText()">全消去</button>
+</div>
+
+<script>
+function generateLink() {
+  var lectureCode = document.getElementById("lecture-code").value;
+  var url = "https://www.portal.oit.ac.jp/CAMJWEB/slbssbdr.do?value(risyunen)=2024&value(semekikn)=1&value(kougicd)=" + lectureCode;
+  window.open(url, '_blank');
+}
+
+function addText(text) {
+  var inputBox = document.getElementById("lecture-code");
+  inputBox.value += text;
+}
+
+function clearText() {
+  var inputBox = document.getElementById("lecture-code");
+  inputBox.value = "";
+}
+</script>
+</body>
+</html>
